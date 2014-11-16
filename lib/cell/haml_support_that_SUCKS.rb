@@ -50,7 +50,7 @@ module WhyDoWeHaveToOverrideRailsHelpersToMakeHamlWork
     value = nil
     buffer = with_output_buffer() { value = yield(*args) }
     if string = buffer.presence || value and string.is_a?(String)
-      return string
+      return string.html_safe
     end
   end
 
@@ -62,7 +62,7 @@ module WhyDoWeHaveToOverrideRailsHelpersToMakeHamlWork
 
   def form_tag_html(html_options)
     extra_tags = extra_tags_for_form(html_options)
-    "#{tag(:form, html_options, true) + extra_tags}"
+    "#{tag(:form, html_options, true) + extra_tags}".html_safe
   end
 
   # Rails 4.0, TagHelper.
