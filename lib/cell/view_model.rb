@@ -106,6 +106,7 @@ module Cell
     end
 
     def render_to_string(options)
+      @view_path = options[:view]
       template = template_for(options[:view], options[:template_engine]) # TODO: cache template with path/lookup keys.
       content  = template.render(self, options[:locals])
 
