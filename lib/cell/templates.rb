@@ -25,7 +25,7 @@ module Cell
 
     def create(base, prefix, view)
       return unless File.exists?("#{base}/#{prefix}/#{view}") # DISCUSS: can we use Tilt.new here?
-      Tilt.new("#{base}/#{prefix}/#{view}", :escape_html => false, :escape_attrs => false)
+      Tilt.new("#{base}/#{prefix}/#{view}")
     end
 
     # {["comment/row/views", comment/views"][show.haml] => "Tpl:comment/view/show.haml"}
